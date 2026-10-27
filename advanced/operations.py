@@ -1,3 +1,5 @@
+from utils import get_user_number
+
 def add(a: float, b: float) -> float:
     """
     Adds two inputs together
@@ -30,10 +32,14 @@ def multiply(a: float, b: float) -> float:
 
 def divide(a: float, b: float) -> float:
     """
-    Divides two inputs together
+    Divides two inputs together, if b is zero, prints and error message and does not crash program
 
     :param a: Divdend
     :param b: Divisor
     :return: Quotient
     """
-    return a / b
+    try:
+        return(a / b)
+    except ZeroDivisionError:
+        print("Cannot divide by zero, please try different divisor")
+        return(divide(a, get_user_number()))
